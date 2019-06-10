@@ -93,6 +93,7 @@ $(STATEDIR)/dbus.targetinstall:
 	@$(call install_fixup, dbus,AUTHOR,"Roland Hostettler <r.hostettler@gmx.ch>")
 	@$(call install_fixup, dbus,DESCRIPTION,missing)
 
+ifndef PTXCONF_DBUS_NO_DAEMON
 	@$(call install_copy, dbus, 0, 0, 0755, -, \
 		/usr/bin/dbus-daemon)
 	@$(call install_copy, dbus, 0, 0, 0755, -, \
@@ -109,14 +110,17 @@ $(STATEDIR)/dbus.targetinstall:
 		/usr/bin/dbus-uuidgen)
 	@$(call install_copy, dbus, 0, 104, 4754, -, \
 		/usr/libexec/dbus-daemon-launch-helper)
+endif
 
 	@$(call install_lib, dbus, 0, 0, 0644, libdbus-1)
 
 #	#
 #	# install config files
 #	#
+ifndef PTXCONF_DBUS_NO_DAEMON
 	@$(call install_alternative, dbus, 0, 0, 0644, /usr/share/dbus-1/system.conf)
 	@$(call install_alternative, dbus, 0, 0, 0644, /usr/share/dbus-1/session.conf)
+endif
 
 #	#
 #	# busybox init: start script
@@ -136,8 +140,6 @@ ifdef PTXCONF_DBUS_SYSTEMD_UNIT
 		/usr/lib/systemd/system/dbus.socket)
 	@$(call install_link, dbus, ../dbus.socket, \
 		/usr/lib/systemd/system/sockets.target.wants/dbus.socket)
-	@$(call install_link, dbus, ../dbus.socket, \
-		/usr/lib/systemd/system/dbus.target.wants/dbus.socket)
 
 	@$(call install_copy, dbus, 0, 0, 0644, -, \
 		/usr/lib/systemd/system/dbus.service)

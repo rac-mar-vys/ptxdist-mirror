@@ -31,6 +31,14 @@ config DBUS_SELINUX
 	depends on BROKEN
 	bool
 
+config DBUS_NO_DAEMON
+	bool
+
+comment "D-Bus daemon is provided by dbus-broker"
+	depends on DBUS_NO_DAEMON
+
+if !DBUS_NO_DAEMON
+
 config DBUS_SYSTEMD
 	bool
 	default INITMETHOD_SYSTEMD
@@ -57,5 +65,7 @@ config DBUS_SYSTEMD_USER_UNIT
 	bool
 	default y
 	depends on SYSTEMD_UNITS_USER && DBUS_SYSTEMD_UNIT
+
+endif
 
 endif

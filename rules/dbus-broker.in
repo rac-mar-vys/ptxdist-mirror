@@ -1,0 +1,17 @@
+## SECTION=middleware
+
+config DBUS_BROKER
+	tristate
+	depends on INITMETHOD_SYSTEMD
+	select HOST_MESON
+	select EXPAT
+	select SYSTEMD
+	select DBUS_NO_DAEMON		if DBUS
+	prompt "dbus-broker"
+	help
+	  The dbus-broker project is an implementation of a message bus as
+	  defined by the D-Bus specification. Its aim is to provide high
+	  performance and reliability, while keeping compatibility to the D-Bus
+	  reference implementation. It is exclusively written for linux systems,
+	  and makes use of many modern features provided by recent linux kernel
+	  releases.
