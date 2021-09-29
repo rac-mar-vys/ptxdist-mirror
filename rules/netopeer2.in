@@ -1,0 +1,12 @@
+## SECTION=networking
+
+config NETOPEER2
+	tristate
+	select HOST_CMAKE
+	select LIBYANG
+	select LIBNETCONF2
+	select SYSREPO
+	select OPENSSL
+	prompt "netopeer2"
+	help
+	  FIXME

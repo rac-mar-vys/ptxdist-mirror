@@ -1,0 +1,8 @@
+## SECTION=networking
+
+config LIBSSH
+	tristate
+	select HOST_CMAKE
+	prompt "libssh"
+	help
+	  FIXME

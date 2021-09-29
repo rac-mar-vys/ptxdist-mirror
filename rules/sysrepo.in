@@ -1,0 +1,9 @@
+## SECTION=networking
+
+config SYSREPO
+	tristate
+	select HOST_CMAKE
+	select LIBYANG
+	prompt "sysrepo"
+	help
+	  FIXME

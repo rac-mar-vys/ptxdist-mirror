@@ -1,0 +1,10 @@
+## SECTION=networking
+
+config LIBNETCONF2
+	tristate
+	select HOST_CMAKE
+	select LIBSSH
+	select LIBYANG
+	prompt "libnetconf2"
+	help
+	  FIXME
