@@ -16,12 +16,11 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh-keyscan git.pengutronix.de >> ~/.ssh/known_hosts
 
       - name: Clone upstream mirror
         run: |
           git clone --mirror \
-            git://git.pengutronix.de/ptxdist ptxdist.git
+            https://git.pengutronix.de/git/ptxdist ptxdist.git
 
       - name: Push to GitHub mirror
         run: |
