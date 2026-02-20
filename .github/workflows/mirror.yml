@@ -25,5 +25,5 @@ jobs:
       - name: Push to GitHub mirror
         run: |
           cd ptxdist.git
-          git remote set-url origin git@github.com:https://github.com/rac-mar-vys/ptxdist-mirror
+          git remote set-url origin git@github.com:rac-mar-vys/ptxdist-mirror
           git push --mirror
