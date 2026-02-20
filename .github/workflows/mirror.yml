@@ -21,7 +21,7 @@ jobs:
       - name: Clone upstream mirror
         run: |
           git clone --mirror \
-            ssh://public@git.pengutronix.de/ptxdist ptxdist.git
+            git://git.pengutronix.de/ptxdist ptxdist.git
 
       - name: Push to GitHub mirror
         run: |
