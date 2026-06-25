@@ -25,6 +25,7 @@ menuconfig WPEWEBKIT
 	select HARFBUZZ_ICU
 	select GLIB_NETWORKING if RUNTIME
 	select LIBDRM
+	select LIBXKBCOMMON
 	select LIBJPEG
 	select LIBWEBP
 	select LIBWEBP_DEMUX
@@ -42,7 +43,6 @@ menuconfig WPEWEBKIT
 	select LIBEPOXY
 	select LIBGCRYPT
 	select LIBTASN1
-	select WPEWEBKIT_VIDEO	# Build with ENABLE_VIDEO=0 is broken
 	select OPENSSL				if WPEWEBKIT_WEBRTC
 	select GSTREAMER1			if WPEWEBKIT_VIDEO || WPEWEBKIT_AUDIO
 	select GST_PLUGINS_BASE1		if WPEWEBKIT_VIDEO || WPEWEBKIT_AUDIO
@@ -77,17 +77,11 @@ menuconfig WPEWEBKIT
 	select GST_PLUGINS_BAD1_VIDEOPARSERS	if WPEWEBKIT_VIDEO
 	select GST_PLUGINS_BAD1_WEBRTC		if WPEWEBKIT_WEBRTC
 	select WPEBACKEND_FDO
-	select QT5				if WPEWEBKIT_QT
-	select QT5_MODULE_QTDECLARATIVE		if WPEWEBKIT_QT
 	select SYSTEMD				if WPEWEBKIT_JOURNALD
 	help
 	  WebPlatformForEmbedded port for the WebKit cross-platform web browser engine.
 
 if WPEWEBKIT
-
-config WPEWEBKIT_QT
-	bool
-	prompt "Qt API"
 
 config WPEWEBKIT_JOURNALD
 	bool
@@ -97,7 +91,6 @@ config WPEWEBKIT_JOURNALD
 
 config WPEWEBKIT_VIDEO
 	bool
-	# fails to build without it
 	select WPEWEBKIT_AUDIO
 	prompt "video support"
 
