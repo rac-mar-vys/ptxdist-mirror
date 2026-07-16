@@ -10,10 +10,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 deletions(-)
 
 diff --git a/termcap.c b/termcap.c
-index b49818b1a7ba..12b8b895c041 100644
+index 87d9c6805873..8bcbab6d76b4 100644
 --- a/termcap.c
 +++ b/termcap.c
-@@ -449,8 +449,6 @@ int remap(int n, int map)
+@@ -454,8 +454,6 @@ int remap(int n, int map)
  		} else
  			break;
  	}
