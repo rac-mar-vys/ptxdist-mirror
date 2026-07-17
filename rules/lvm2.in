@@ -8,6 +8,7 @@ menuconfig LVM2
 	select READLINE
 	select NCURSES
 	select SYSTEMD			if LVM2_SYSTEMD
+	select BASH			if (LVM2_FSADM || LVM2_LVMDUMP) && RUNTIME
 	prompt "lvm2                          "
 	help
 	  LVM2 refers to a new userspace toolset that provide logical volume management
@@ -32,6 +33,13 @@ config LVM2_STARTSCRIPT
 	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/lvm2"
 
+config LVM2_FSADM
+	bool
+	prompt "install the fsadm command"
+
+config LVM2_LVMDUMP
+	bool
+	prompt "install the lvmdump command"
 endif
 
 config LVM2_LIBDEVMAPPER_EVENT

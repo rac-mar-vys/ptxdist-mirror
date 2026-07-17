@@ -110,10 +110,15 @@ $(STATEDIR)/lvm2.targetinstall:
 
 	@$(call install_copy, lvm2, 0, 0, 0755, -, /usr/sbin/dmsetup)
 
-ifdef PTXCONF_LVM2_LVM_TOOLS
+ifdef PTXCONF_LVM2_FSADM
 	@$(call install_copy, lvm2, 0, 0, 0755, -, /usr/sbin/fsadm)
-	@$(call install_copy, lvm2, 0, 0, 0755, -, /usr/sbin/lvmdump)
+endif
 
+ifdef PTXCONF_LVM2_LVMDUMP
+	@$(call install_copy, lvm2, 0, 0, 0755, -, /usr/sbin/lvmdump)
+endif
+
+ifdef PTXCONF_LVM2_LVM_TOOLS
 	@$(call install_copy, lvm2, 0, 0, 0755, -, /usr/sbin/lvm)
 	@$(call install_link, lvm2, lvm, /usr/sbin/lvchange)
 	@$(call install_link, lvm2, lvm, /usr/sbin/lvconvert)
