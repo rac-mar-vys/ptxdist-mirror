@@ -1,0 +1,10 @@
+## SECTION=multimedia_xorg_font_ttf
+
+config XORG_FONT_TTF_NANUM_GOTHIC
+	tristate
+	select XORG_FONTS
+	depends on XORG_FONT_TTF
+	prompt "nanum gothic"
+	help
+	  NanumGothic is a Korean sans-serif font family created by NAVER,
+	  covering Hangul, Hanja and Latin glyphs.
