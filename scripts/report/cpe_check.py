@@ -60,6 +60,7 @@ class CPECheckGenerator(SbomGenerator):
 
         self.cpe_db = defaultdict(lambda: defaultdict(list))
         print(f"Loading CPE dictionary from file {filename} ...")
+        skipped = 0
         tree = ElementTree.parse(filename)
         for item in tree.findall("./{http://cpe.mitre.org/dictionary/2.0}cpe-item"):
             if item.attrib.get("deprecated", "false") == "true":
@@ -67,8 +68,17 @@ class CPECheckGenerator(SbomGenerator):
             cpe_id = item.find(
                 "./{http://scap.nist.gov/schema/cpe-extension/2.3}cpe23-item"
             ).attrib["name"]
-            cpe = CPE2_3(cpe_id)
+            try:
+                cpe = CPE2_3(cpe_id)
+            except NotImplementedError:
+                # a handful of entries in the NVD dictionary are malformed
+                # (e.g. non-CPE data left over in the language field); skip
+                # them instead of aborting the whole report.
+                skipped += 1
+                continue
             self.cpe_db[cpe.get_product()[0]][cpe.get_vendor()[0]].append(cpe_id)
+        if skipped:
+            print(f"Skipped {skipped} malformed CPE dictionary entries")
 
         if cache_filename:
             self.cpe_db = dict(self.cpe_db)
