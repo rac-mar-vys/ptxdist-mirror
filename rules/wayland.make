@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WAYLAND) += wayland
 #
 # Paths and names
 #
-WAYLAND_VERSION	:= 1.25.0
-WAYLAND_SHA256	:= c065f040afdff3177680600f249727e41a1afc22fccf27222f15f5306faa1f03
+WAYLAND_VERSION	:= 1.26.0
+WAYLAND_SHA256	:= 64176eaa46e4969903e286f8e5ef8331affc17fdf03ac9b58381d2b23162b7a3
 WAYLAND		:= wayland-$(WAYLAND_VERSION)
 WAYLAND_SUFFIX	:= tar.xz
 WAYLAND_URL	:= https://gitlab.freedesktop.org/wayland/wayland/-/releases/$(WAYLAND_VERSION)/downloads/$(WAYLAND).$(WAYLAND_SUFFIX)
