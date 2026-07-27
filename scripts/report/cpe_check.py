@@ -11,7 +11,9 @@ from cpe.cpe2_3 import CPE2_3
 from cpe.cpeset2_3 import CPESet2_3
 from os import path
 from xml.etree import ElementTree
+import json
 import pickle
+import tarfile
 import yaml
 
 
@@ -31,6 +33,40 @@ class CPECheckGenerator(SbomGenerator):
             if isinstance(value, list):
                 value.sort()
         file.write(yaml.dump(dict(result)))
+
+    def _iter_dictionary_xml(self, filename):
+        tree = ElementTree.parse(filename)
+        for item in tree.findall("./{http://cpe.mitre.org/dictionary/2.0}cpe-item"):
+            if item.attrib.get("deprecated", "false") != "true":
+                yield item.find(
+                    "./{http://scap.nist.gov/schema/cpe-extension/2.3}cpe23-item"
+                ).attrib["name"]
+
+    def _iter_dictionary_json(self, fileobj):
+        for product in json.load(fileobj)["products"]:
+            cpe = product["cpe"]
+            if not cpe.get("deprecated", False):
+                yield cpe["cpeName"]
+
+    def _iter_dictionary_targz(self, filename):
+        with tarfile.open(filename, "r:gz") as tar:
+            for member in tar.getmembers():
+                if not member.isfile() or not member.name.endswith(".json"):
+                    continue
+                yield from self._iter_dictionary_json(tar.extractfile(member))
+
+    def _iter_dictionary_entries(self, filename):
+        # NVD's "CPE Dictionary 2.0" feed: a single JSON document, or the
+        # chunked "nvdcpe-2.0.tar.gz" archive as distributed by NVD.
+        if filename.endswith((".tar.gz", ".tgz")):
+            yield from self._iter_dictionary_targz(filename)
+        elif filename.endswith(".json"):
+            with open(filename) as fileobj:
+                yield from self._iter_dictionary_json(fileobj)
+        else:
+            # the legacy "official-cpe-dictionary_v2.3.xml" feed, retired by
+            # NVD in 2025 but still supported here for existing dictionaries.
+            yield from self._iter_dictionary_xml(filename)
 
     def _load_dictionary(self, env):
         filename = env.get("cpe_dictionary")
@@ -61,13 +97,7 @@ class CPECheckGenerator(SbomGenerator):
         self.cpe_db = defaultdict(lambda: defaultdict(list))
         print(f"Loading CPE dictionary from file {filename} ...")
         skipped = 0
-        tree = ElementTree.parse(filename)
-        for item in tree.findall("./{http://cpe.mitre.org/dictionary/2.0}cpe-item"):
-            if item.attrib.get("deprecated", "false") == "true":
-                continue
-            cpe_id = item.find(
-                "./{http://scap.nist.gov/schema/cpe-extension/2.3}cpe23-item"
-            ).attrib["name"]
+        for cpe_id in self._iter_dictionary_entries(filename):
             try:
                 cpe = CPE2_3(cpe_id)
             except NotImplementedError:

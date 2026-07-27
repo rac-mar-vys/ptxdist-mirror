@@ -68,13 +68,19 @@ config PROJECT_CPE_REPORT_DEPS
 
 config PROJECT_CPE_DICTIONARY
 	string
-	default "${PTXDIST_WORKSPACE}/official-cpe-dictionary_v2.3.xml"
+	default "${PTXDIST_WORKSPACE}/nvdcpe-2.0.tar.gz"
 	prompt "official CPE dictionary for the CPE check"
 	help
 	  Path to the official CPE dictionary. It can be found here:
-	  https://nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml.gz
+	  https://nvd.nist.gov/feeds/json/cpe/2.0/nvdcpe-2.0.tar.gz
 	  The URL always returns the latest version so PTXdist cannot properly
-	  download and cache it. So it must be manually downloaded, extracted
-	  and placed in the location specified here.
+	  download and cache it. So it must be manually downloaded and placed
+	  in the location specified here, unmodified (the .tar.gz is used
+	  as-is, no need to extract it).
+
+	  The legacy "official-cpe-dictionary_v2.3.xml" feed (retired by NVD
+	  in 2025) is still supported for existing dictionaries: point this
+	  at the .xml file instead. A plain .json file in the NVD API 2.0
+	  "products" schema is also accepted.
 
 endif
