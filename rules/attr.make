@@ -18,16 +18,13 @@ ATTR_VERSION	:= 2.5.1
 ATTR_SHA256	:= bae1c6949b258a0d68001367ce0c741cebdacdd3b62965d17e5eb23cd78adaf8
 ATTR		:= attr-$(ATTR_VERSION)
 ATTR_SUFFIX	:= tar.gz
+ATTR_URL	:= $(call ptx/mirror, SAVANNAH, attr/$(ATTR).$(ATTR_SUFFIX))
 ATTR_SOURCE	:= $(SRCDIR)/$(ATTR).$(ATTR_SUFFIX)
 ATTR_DIR	:= $(BUILDDIR)/$(ATTR)
 ATTR_LICENSE	:= GPL-2.0-only AND LGPL-2.0-only
 ATTR_LICENSE_FILES := \
 	file://doc/COPYING;md5=2d0aa14b3fce4694e4f615e30186335f \
 	file://doc/COPYING.LGPL;md5=b8d31f339300bc239d73461d68e77b9c
-
-ATTR_URL	:= \
-	http://download.savannah.gnu.org/releases/attr/$(ATTR).$(ATTR_SUFFIX) \
-	http://mirrors.zerg.biz/nongnu/attr/$(ATTR).$(ATTR_SUFFIX)
 
 # ----------------------------------------------------------------------------
 # Prepare
