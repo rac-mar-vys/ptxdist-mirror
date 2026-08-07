@@ -49,10 +49,14 @@ END {
 export -f ptxd_make_world_cargo_sync_parse
 
 ptxd_make_world_cargo_sync_package() {
-    local path PACKAGE ORIG_PACKAGE FULL_PACKAGE extra
+    local path PACKAGE ORIG_PACKAGE FULL_PACKAGE extra download_url mirror mirrors
 
     if [ -z "${url}" ]; then
 	url="\$(call ptx/mirror, CRATESIO, ${package}/${version}/download)"
+	read -r -a mirrors <<< "${PTXCONF_SETUP_CRATESIOMIRROR}"
+	for mirror in "${mirrors[@]}"; do
+	    download_url+=" ${mirror}/${package}/${version}/download"
+	done
     else
 	package="${url##*/}"
 	package="${package%%.git}"
@@ -62,6 +66,7 @@ ptxd_make_world_cargo_sync_package() {
 	fi
 	workspaces[${hash}]="${package}"
 	url="${url};tag=${hash}"
+	download_url="${url}"
     fi
     PACKAGE="$(tr '[a-z]' '[A-Z]' <<< "${package}-${version}" | tr -sc '[:alnum:]' '_')"
     PACKAGE="${PACKAGE%_}"
@@ -86,9 +91,9 @@ ptxd_make_world_cargo_sync_package() {
 
     echo "Processing ${package} ${version} ..."
     if [ ! -e "${path}" ]; then
-	echo "Downloading ${url} ..."
+	echo "Downloading ${download_url} ..."
 	echo
-	ptxd_make_get "${path}" "${url}"
+	ptxd_make_get "${path}" "${download_url}"
     fi
     set -- $(sha256sum "${path}")
     sha256="${1}"
