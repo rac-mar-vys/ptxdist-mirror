@@ -193,6 +193,13 @@ config SETUP_CRATESIOMIRROR
 	help
 	  For all rust packages from crates.io enter an available mirror here.
 
+config SETUP_SAVANNAHMIRROR
+	string
+	default "https://download.savannah.gnu.org/releases http://download-mirror.savannah.gnu.org/releases"
+	prompt "savannah.gnu.org Mirror"
+	help
+	  For all GNU Savannah packages enter an available mirror here.
+
 choice
 	prompt "archive check"
 	default SETUP_CHECK_ALWAYS
