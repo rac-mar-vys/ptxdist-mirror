@@ -31,8 +31,8 @@ FREETYPE_LICENSE_FILES	:= \
 	file://src/autofit/ft-hb.c;startline=7;endline=14;md5=6297ce6489e3e6aee5a297465f9bed27
 
 FREETYPE_URL := \
-	https://download.savannah.gnu.org/releases/freetype/$(FREETYPE).$(FREETYPE_SUFFIX) \
-	https://download.savannah.gnu.org/releases/freetype/freetype-old/$(FREETYPE).$(FREETYPE_SUFFIX) \
+	$(call ptx/mirror, SAVANNAH, freetype/$(FREETYPE).$(FREETYPE_SUFFIX)) \
+	$(call ptx/mirror, SAVANNAH, freetype/freetype-old/$(FREETYPE).$(FREETYPE_SUFFIX)) \
 	$(call ptx/mirror, SF, freetype/freetype2/$(FREETYPE_VERSION)/$(FREETYPE).$(FREETYPE_SUFFIX))
 
 # ----------------------------------------------------------------------------
