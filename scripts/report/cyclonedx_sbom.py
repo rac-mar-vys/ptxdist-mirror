@@ -6,16 +6,20 @@
 # see the README file.
 #
 
+import json
 from base64 import b64encode
-from cyclonedx.exception.factory import InvalidSpdxLicenseException
+from datetime import datetime
+from os import path
+from shutil import copy
+
 from cyclonedx.factory.license import LicenseFactory
 from cyclonedx.model import (
     AttachedText,
     Encoding,
     ExternalReference,
     ExternalReferenceType,
-    HashType,
     HashAlgorithm,
+    HashType,
     Property,
 )
 from cyclonedx.model.bom import Bom, BomMetaData
@@ -31,19 +35,10 @@ from cyclonedx.model.component import (
     Pedigree,
 )
 from cyclonedx.output.json import JsonV1Dot6
-from cyclonedx.spdx import fixup_id as spdx_id
-from datetime import datetime
-from os import path
 from packageurl import PackageURL
-from shutil import copy
-from sortedcontainers import SortedSet
-import hashlib
-import json
-import re
-import uuid
-
-from report.sbom import SbomGenerator
 from report.report import ReportException
+from report.sbom import SbomGenerator
+from sortedcontainers import SortedSet
 
 
 class CycloneDXSbomGenerator(SbomGenerator):

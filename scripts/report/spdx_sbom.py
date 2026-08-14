@@ -6,13 +6,15 @@
 # see the README file.
 #
 
+import hashlib
+import uuid
 from datetime import datetime, timezone
 from os import path
 from shutil import copy
-import hashlib
-import uuid
 
+from report.report import ReportException
 from report.sbom import SbomGenerator
+
 from report import spdx
 
 

@@ -6,19 +6,18 @@
 # see the README file.
 #
 
-from collections import defaultdict
-from cpe.cpe2_3 import CPE2_3
-from cpe.cpeset2_3 import CPESet2_3
-from os import path
-from xml.etree import ElementTree
 import json
 import pickle
 import tarfile
+from collections import defaultdict
+from os import path
+from xml.etree import ElementTree
+
 import yaml
-
-
-from report.sbom import SbomGenerator
+from cpe.cpe2_3 import CPE2_3
+from cpe.cpeset2_3 import CPESet2_3
 from report.report import ReportException
+from report.sbom import SbomGenerator
 
 
 class CPECheckGenerator(SbomGenerator):

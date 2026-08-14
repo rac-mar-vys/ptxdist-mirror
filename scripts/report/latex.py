@@ -6,13 +6,13 @@
 # see the README file.
 #
 
-from multiprocessing import Pool
-from os import path, environ
 import hashlib
 import subprocess
+from multiprocessing import Pool
+from os import environ, path
 
-from report.report import find_file, ReportException
 from report.generator import Generator
+from report.report import ReportException
 
 
 class LatexGenerator(Generator):

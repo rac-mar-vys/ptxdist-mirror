@@ -6,11 +6,11 @@
 # see the README file.
 #
 
-from os import path
 import re
+from os import path
 
-from report.report import ReportException
 from report.generator import Generator
+from report.report import ReportException
 
 
 class SbomGenerator(Generator):

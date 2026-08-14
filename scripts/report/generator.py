@@ -6,14 +6,14 @@
 # see the README file.
 #
 
-from chardet.universaldetector import UniversalDetector
-from datetime import datetime
-from os import path, makedirs
-import jinja2
 import re
-import yaml
+from datetime import datetime
+from os import makedirs, path
 
-from report.report import find_file, ReportException
+import jinja2
+import yaml
+from chardet.universaldetector import UniversalDetector
+from report.report import ReportException, find_file
 
 
 class Generator:
