@@ -135,7 +135,7 @@ class CycloneDXSbomGenerator(SbomGenerator):
         self.cyclonedx_pkgs[pkg_name] = component
 
         for source in source_packages:
-            source_component = self.build_package(document, source, component)
+            self.build_package(document, source, component)
 
         return component
 
