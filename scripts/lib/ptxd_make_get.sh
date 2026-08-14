@@ -66,10 +66,6 @@ ptxd_make_get_http() {
     #
     local file="${url##*/}"
 
-    # remove any pending or half downloaded files
-    p="[a-zA-Z0-9]"
-    rm -f -- "${path}."$p$p$p$p$p$p$p$p$p$p
-
     ptxd_make_serialize_take
     if [ "${ptxd_make_get_dryrun}" = "y" ]; then
 	echo "Checking URL '${url}'..."
@@ -128,6 +124,17 @@ ptxd_make_get_http() {
 	fi &&
 	touch -- "${temp_file}" &&
 	mv -- "${temp_file}" "${path}"
+	# if we failed, maybe another ptxdist run downloaded the same file
+	if [ $? != 0 -a ! -f "${path}" ]; then
+	    ptxd_make_serialize_put
+	    ptxd_warning "Download failed"
+	    echo
+	    return 1
+	fi
+	# remove any pending or half downloaded files
+	p="[a-zA-Z0-9]"
+	rm -f -- "${path}."$p$p$p$p$p$p$p$p$p$p
+
     fi
     ptxd_make_serialize_put
 
