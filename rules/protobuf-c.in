@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 config PROTOBUF_C
 	tristate
@@ -10,3 +12,7 @@ config PROTOBUF_C
 	  NOTE: This installs the libprotobuf-c shared library for the
 	  target.  The host package includes the code generator plug-in
 	  for the protoc command.
+
+	  STAGING: remove in PTXdist 2027.09.0
+	  Fails to build with protobuf v35.1 and with v33 and gcc 16.
+	  No new upstream version and unused in PTXdist upstream.
