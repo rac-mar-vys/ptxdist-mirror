@@ -68,7 +68,7 @@ WPEWEBKIT_CONF_OPT	:= \
 	-DENABLE_WPE_PLATFORM_DRM=$(call ptx/onoff,PTXCONF_WPEWEBKIT_PLATFORM_DRM) \
 	-DENABLE_WPE_PLATFORM_HEADLESS=OFF \
 	-DENABLE_WPE_PLATFORM_WAYLAND=$(call ptx/onoff,PTXCONF_WPEWEBKIT_PLATFORM_WAYLAND) \
-	-DENABLE_WPE_QT_API=OFF \
+	-DENABLE_WPE_QT_API=$(call ptx/onoff,PTXCONF_WPEWEBKIT_QT) \
 	-DENABLE_XSLT=ON \
 	-DGCC_OFFLINEASM_SOURCE_MAP=OFF \
 	-DPORT=WPE \
@@ -132,6 +132,10 @@ $(STATEDIR)/wpewebkit.targetinstall:
 	@$(call install_tree, wpewebkit, 0, 0, -, /usr/libexec/wpe-webkit-2.0)
 	@$(call install_tree, wpewebkit, 0, 0, -, /usr/lib/wpe-webkit-2.0)
 	@$(call install_tree, wpewebkit, 0, 0, -, /usr/share/wpe-webkit-2.0)
+
+ifdef PTXCONF_WPEWEBKIT_QT
+	@$(call install_tree, wpewebkit, 0, 0, -, /usr/lib/qt6/qml/org/wpewebkit)
+endif
 
 ifdef PTXCONF_WPEWEBKIT_WEBDRIVER
 	@$(call install_copy, wpewebkit, 0, 0, 0755, -, /usr/bin/WPEWebDriver)

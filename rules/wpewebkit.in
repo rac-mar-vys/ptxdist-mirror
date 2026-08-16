@@ -82,11 +82,17 @@ menuconfig WPEWEBKIT
 	select GST_PLUGINS_BAD1_SUBENC		if WPEWEBKIT_VIDEO
 	select GST_PLUGINS_BAD1_VIDEOPARSERS	if WPEWEBKIT_VIDEO
 	select GST_PLUGINS_BAD1_WEBRTC		if WPEWEBKIT_WEBRTC
+	select QT6				if WPEWEBKIT_QT
+	select QT6_MODULE_QTDECLARATIVE		if WPEWEBKIT_QT
 	select SYSTEMD				if WPEWEBKIT_JOURNALD
 	help
 	  WebPlatformForEmbedded port for the WebKit cross-platform web browser engine.
 
 if WPEWEBKIT
+
+config WPEWEBKIT_QT
+	bool
+	prompt "Qt API"
 
 choice
 	prompt "WPE platform backend"
