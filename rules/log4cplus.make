@@ -33,8 +33,10 @@ LOG4CPLUS_CONF_TOOL	:= cmake
 
 LOG4CPLUS_CONF_OPT	:= $(CROSS_CMAKE_USR)
 LOG4CPLUS_CONF_OPT	+= \
+	-DLOG4CPLUS_BUILD_LOGGINGSERVER=ON \
 	-DLOG4CPLUS_BUILD_TESTING=OFF \
-	-DLOG4CPLUS_QT4=OFF
+	-DLOG4CPLUS_QT4=OFF \
+	-DLOG4CPLUS_QT5=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install
