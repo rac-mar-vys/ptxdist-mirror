@@ -106,10 +106,8 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-gcrypt \
 	--disable-gettext \
 	--disable-gio \
-	--disable-glusterfs \
 	--disable-gnutls \
 	--disable-gtk \
-	--disable-gtk-clipboard \
 	--disable-guest-agent \
 	--disable-guest-agent-msi \
 	--disable-hv-balloon \
@@ -142,6 +140,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--enable-multiprocess \
 	--disable-netmap \
 	--disable-nettle \
+	--disable-nitro \
 	--disable-numa \
 	--disable-nvmm \
 	--disable-opengl \
@@ -155,6 +154,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-qcow1 \
 	--disable-qatzip \
 	--disable-qed \
+	--disable-qemu-vnc \
 	--disable-qga-vss \
 	--disable-qpl \
 	--disable-rbd \
