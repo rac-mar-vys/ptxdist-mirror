@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_ARCH_LP64)-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 11.0.3
-QEMU_SHA256	:= da5fcffc32762820568b828ed430a728864d34d50b6d2f30358597760cbb0523
+QEMU_VERSION	:= 11.1.0
+QEMU_SHA256	:= 6ee1d1a61f68212476b27108c26da5f449dc09b626d42f8279ba0dc2e08fa858
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -110,10 +110,8 @@ QEMU_CONF_OPT	:= \
 	--disable-gcrypt \
 	--disable-gettext \
 	--disable-gio \
-	--disable-glusterfs \
 	--disable-gnutls \
 	--$(call ptx/endis, PTXCONF_QEMU_GTK)-gtk \
-	--$(call ptx/endis, PTXCONF_QEMU_GTK)-gtk-clipboard \
 	--disable-guest-agent \
 	--disable-guest-agent-msi \
 	--disable-hv-balloon \
@@ -147,6 +145,7 @@ QEMU_CONF_OPT	:= \
 	--enable-multiprocess \
 	--disable-netmap \
 	--disable-nettle \
+	--disable-nitro \
 	--disable-numa \
 	--disable-nvmm \
 	--disable-opengl \
@@ -162,6 +161,7 @@ QEMU_CONF_OPT	:= \
 	--disable-qatzip \
 	--disable-qcow1 \
 	--disable-qed \
+	--disable-qemu-vnc \
 	--disable-qga-vss \
 	--disable-qpl \
 	--disable-rbd \
