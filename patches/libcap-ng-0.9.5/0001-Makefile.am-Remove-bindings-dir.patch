@@ -12,9 +12,8 @@ Signed-off-by: Christian Melki <christian.melki@t2data.com>
 ---
  Makefile.am              | 3 ---
  NEWS                     | 0
- bindings/src/Makefile.am | 3 ---
- configure.ac             | 6 ------
- 4 files changed, 12 deletions(-)
+ bindings/src/Makefile.am | 1 -
+ 3 files changed, 4 deletions(-)
  create mode 100644 NEWS
 
 diff --git a/Makefile.am b/Makefile.am
@@ -35,30 +34,12 @@ diff --git a/NEWS b/NEWS
 new file mode 100644
 index 000000000000..e69de29bb2d1
 diff --git a/bindings/src/Makefile.am b/bindings/src/Makefile.am
-index 924e3d0877b4..626241c6328c 100644
+index 924e3d0877b4..d84fb3023993 100644
 --- a/bindings/src/Makefile.am
 +++ b/bindings/src/Makefile.am
-@@ -19,6 +19,3 @@
- # Authors:
+@@ -20,5 +20,4 @@
  #   Steve Grubb <sgrubb@redhat.com>
  #
--
--EXTRA_DIST = capng_swig.i
--CONFIG_CLEAN_FILES = *.loT *.rej *.orig
-diff --git a/configure.ac b/configure.ac
-index 44ef598d0676..d987698e2062 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -257,12 +257,6 @@ if test x"${ac_cv_have_decl_PR_CAP_AMBIENT}" = x"no" ; then
- fi
- AM_CONDITIONAL(BUILD_LIBDROP_AMBIENT, test x"${ac_cv_have_decl_PR_CAP_AMBIENT}" = x"yes")
  
--AC_CHECK_PROG(swig_found, swig, yes, no)
--if test x"${swig_found}" = x"no" ; then
--	AC_MSG_WARN("Swig not found - python bindings will not be made")
--fi
--AM_CONDITIONAL(HAVE_SWIG, test x"${swig_found}" = x"yes")
--
- withval=""
- AC_MSG_CHECKING(whether to create python3 bindings)
- AC_ARG_WITH(python3,
+-EXTRA_DIST = capng_swig.i
+ CONFIG_CLEAN_FILES = *.loT *.rej *.orig

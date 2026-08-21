@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBCAP_NG) += libcap-ng
 #
 # Paths and names
 #
-LIBCAP_NG_VERSION	:= 0.9.3
-LIBCAP_NG_SHA256	:= fe11ebbb55904763b3532f19069f13ec319042634620180a03bd4653d301563e
+LIBCAP_NG_VERSION	:= 0.9.5
+LIBCAP_NG_SHA256	:= a2b4211f59b231d607c61ea2a13e9ecb38f446fe769b44e12da939d5af6d978a
 LIBCAP_NG		:= libcap-ng-$(LIBCAP_NG_VERSION)
 LIBCAP_NG_SUFFIX	:= tar.gz
 LIBCAP_NG_URL		:= \
@@ -38,6 +38,7 @@ LIBCAP_NG_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-cap-audit \
 	--without-warn \
+	--without-python \
 	--without-python3
 
 # ----------------------------------------------------------------------------
