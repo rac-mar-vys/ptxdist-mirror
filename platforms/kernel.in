@@ -11,6 +11,8 @@ menuconfig KERNEL
 	select HOST_LZ4			if KERNEL_LZ4
 	select HOST_LIBKMOD		if KERNEL_MODULES
 	select HOST_SYSTEM_BC
+	select HOST_SYSTEM_PYTHON3	if KERNEL_DTB_CHECK
+	select HOST_SYSTEM_PYTHON3_DTSCHEMA	if KERNEL_DTB_CHECK
 	select HOST_OPENSSL		if KERNEL_OPENSSL
 	select HOST_LIBELF		if KERNEL_LIBELF
 	select HOST_BINDGEN_CLI		if KERNEL_RUST
@@ -199,6 +201,29 @@ config KERNEL_DTS
 	  blob generation. For relative file names KERNEL_DTS_PATH
 	  is used as a search path for the device tree files specified
 	  here. Multiple dts files can be specified, separated by spaces.
+
+config KERNEL_DTB_CHECK
+	bool
+	prompt "validate device trees against the DT schema"
+	help
+	  Additionally build the device trees with the kernel build system
+	  ('make CHECK_DTBS=y <board>.dtb') to validate them against the
+	  device tree bindings in Documentation/devicetree/bindings.
+	  Schema problems are reported as warnings, so they do not break
+	  the build.
+
+	  This requires the 'dtschema' python package on the build host and
+	  it noticeably increases the build time of the kernel, because the
+	  schema of all bindings must be processed first.
+
+	  Only device trees that are part of the kernel tree can be checked,
+	  because the make targets are relative to arch/<arch>/boot/dts.
+	  Each file in KERNEL_DTS is looked up in KERNEL_DTS_PATH and the
+	  first match inside the kernel tree is validated. Device trees
+	  without such a match are skipped with a warning. So for device
+	  trees in a vendor directory, that directory must be part of
+	  KERNEL_DTS_PATH, e.g.
+	  "${KERNEL_DIR}/arch/${GENERIC_KERNEL_ARCH}/boot/dts/ti/omap".
 
 config KERNEL_DTS_SUPPORT_OVERLAYS
 	bool

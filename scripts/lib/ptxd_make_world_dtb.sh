@@ -109,10 +109,13 @@ export -f ptxd_make_world_dtbo
 
 ptxd_make_world_dtb() {
     local dtb_deps_target dtb_source dtb_target
+    local dts_file dts_in_tree dtb_check_dtstree
+    local -a dtb_check_targets=()
 
     ptxd_make_world_init || return
 
     dtb_deps_target="${ptx_state_dir}/${pkg_stamp}"
+    dtb_check_dtstree="${pkg_kernel_dir:-${pkg_dir}}/arch/${pkg_arch}/boot/dts"
 
     echo -e "\nBuilding device trees..."
 
@@ -128,7 +131,36 @@ ptxd_make_world_dtb() {
 	dtb_source="${ptxd_reply}"
 	dtb_target="${pkg_pkg_dir}/boot/$(basename ${dts_dts/%.dts/.dtb})"
 
+	#
+	# The dtb targets of the kernel build system are relative to
+	# arch/<arch>/boot/dts, so only device trees from the kernel tree
+	# can be validated.
+	#
+	if [ -n "${pkg_dtb_check_opt}" ]; then
+	    dts_file=""
+	    for dts_in_tree in "${ptxd_reply[@]}"; do
+		if [ "${dts_in_tree}" != "${dts_in_tree#${dtb_check_dtstree}/}" ]; then
+		    dts_file="${dts_in_tree#${dtb_check_dtstree}/}"
+		    break
+		fi
+	    done
+	    if [ -n "${dts_file}" ]; then
+		dtb_check_targets[${#dtb_check_targets[@]}]="${dts_file/%.dts/.dtb}"
+	    else
+		ptxd_warning "Device tree '${dts_dts}' is not part of the kernel tree. Skipping validation."
+	    fi
+	fi
+
 	ptxd_make_dtb || break
     done
+
+    if [ ${#dtb_check_targets[@]} -ne 0 ]; then
+	echo -e "\nValidating device trees..."
+	ptxd_eval \
+	    "${MAKE}" \
+	    "${pkg_dtb_check_opt}" \
+	    "${dtb_check_targets[@]}" ||
+	ptxd_bailout "Unable to validate device trees."
+    fi
 }
 export -f ptxd_make_world_dtb

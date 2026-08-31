@@ -282,6 +282,13 @@ KERNEL_INSTALL_OPT = \
 	$(KERNEL_BASE_OPT) \
 	modules_install
 
+ifdef PTXCONF_KERNEL_DTB_CHECK
+# validate the device trees while building them in world/dtb
+KERNEL_DTB_CHECK_OPT	= \
+	$(KERNEL_SHARED_OPT) \
+	CHECK_DTBS=y
+endif
+
 $(STATEDIR)/kernel.install:
 	@$(call targetinfo)
 ifdef PTXCONF_KERNEL_MODULES_INSTALL

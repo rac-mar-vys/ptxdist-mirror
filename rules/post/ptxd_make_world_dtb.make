@@ -10,6 +10,7 @@ world/dtb/env = \
 	$(call world/env, $(1)) \
 	pkg_dts_path="$($(1)_DTS_PATH)" \
 	pkg_dts="$($(1)_DTS)" \
+	pkg_dtb_check_opt="$(call ptx/escape,$($(1)_DTB_CHECK_OPT))" \
 	pkg_arch="$(GENERIC_KERNEL_ARCH)"
 
 world/dtb = \
