@@ -42,6 +42,15 @@ ifdef PTXCONF_HOST_SYSTEM_PYTHON3_DEV
 		ptxd_bailout "Python development files module not found! \
 	Please install python3-dev (debian)";
 endif
+ifdef PTXCONF_HOST_SYSTEM_PYTHON3_DTSCHEMA
+	@echo "Checking for Python dtschema ..."
+	@$(SYSTEMPYTHON3) -c 'import dtschema' 2>/dev/null || \
+		ptxd_bailout "Python dtschema module not found! \
+	Please install dt-schema (debian)";
+	@dt-validate --version >/dev/null 2>&1 || \
+		ptxd_bailout "'dt-validate' not found in PATH! \
+	Please install dt-schema (debian)";
+endif
 ifdef PTXCONF_HOST_SYSTEM_PYTHON3_NUMPY
 	@echo "Checking for Python Numpy ..."
 	@$(SYSTEMPYTHON3) -c 'import numpy' 2>/dev/null || \
