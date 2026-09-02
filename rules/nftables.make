@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NFTABLES) += nftables
 #
 # Paths and names
 #
-NFTABLES_VERSION	:= 1.1.6
-NFTABLES_SHA256		:= 372931bda8556b310636a2f9020adc710f9bab66f47efe0ce90bff800ac2530c
+NFTABLES_VERSION	:= 1.1.7
+NFTABLES_SHA256		:= a6fbf060d8d4fff001517a2b94f356bb4366bfbf0ba366366f9d27cc38caa58f
 NFTABLES		:= nftables-$(NFTABLES_VERSION)
 NFTABLES_SUFFIX		:= tar.xz
 NFTABLES_URL		:= https://ftp.netfilter.org/pub/nftables/$(NFTABLES).$(NFTABLES_SUFFIX)
@@ -36,8 +36,10 @@ NFTABLES_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--$(call ptx/endis, PTXCONF_NFTABLES_DEBUG)-debug \
 	--disable-man-doc \
+	--enable-extended-parser-errors \
 	--disable-fuzzer \
 	--disable-distcheck \
+	--disable-profiling \
 	--$(call ptx/wwo, PTXCONF_NFTABLES_MGMP)-mini-gmp \
 	--without-cli \
 	--without-xtables \
