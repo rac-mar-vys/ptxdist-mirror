@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBPCAP) += libpcap
 #
 # Paths and names
 #
-LIBPCAP_VERSION	:= 1.10.6
-LIBPCAP_SHA256	:= 872dd11337fe1ab02ad9d4fee047c9da244d695c6ddf34e2ebb733efd4ed8aa9
+LIBPCAP_VERSION	:= 1.10.7
+LIBPCAP_SHA256	:= 0b394ac90dbc0a9838ff97468e05c9c9a3e873dec2514cd58db65d859d296e31
 LIBPCAP		:= libpcap-$(LIBPCAP_VERSION)
 LIBPCAP_SUFFIX	:= tar.gz
 LIBPCAP_URL	:= https://www.tcpdump.org/release/$(LIBPCAP).$(LIBPCAP_SUFFIX)
@@ -57,6 +57,7 @@ LIBPCAP_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBPCAP_BLUETOOTH)-bluetooth \
 	--disable-dbus \
 	--disable-rdma \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--with-pcap=linux \
 	--with-libnl \
 	--without-dag \
