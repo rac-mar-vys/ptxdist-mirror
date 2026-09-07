@@ -52,9 +52,11 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--disable-manual \
 	--enable-libcurl-option \
 	--disable-libgcc \
+	--disable-gssapi-apple \
 	--enable-ipv6 \
 	--enable-openssl-auto-load-config \
 	--disable-versioned-symbols \
+	--disable-apple-fast-udp \
 	--disable-windows-unicode \
 	--enable-threaded-resolver \
 	--disable-verbose \
@@ -65,8 +67,8 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--disable-kerberos-auth \
 	--disable-negotiate-auth \
 	--disable-aws \
+	--disable-httpsig \
 	--disable-ntlm \
-	--disable-tls-srp \
 	--enable-unix-sockets \
 	--disable-cookies \
 	--enable-socketpair \
