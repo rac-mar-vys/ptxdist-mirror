@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.21.0
-LIBCURL_SHA256	:= aa1b66a70eace83dc624508745646c08ae561de512ab403adffb93ac87fc72e6
+LIBCURL_VERSION	:= 8.22.0
+LIBCURL_SHA256	:= f7ef3ae8a22e521f289803fe93543eb64c329b58aa73a9e224dfd915a2a5f4f7
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
@@ -69,8 +69,10 @@ LIBCURL_CONF_OPT	:= \
 	--enable-libcurl-option \
 	--disable-libgcc \
 	$(GLOBAL_IPV6_OPTION) \
+	--disable-gssapi-apple \
 	--enable-openssl-auto-load-config \
 	--disable-versioned-symbols \
+	--disable-apple-fast-udp \
 	--disable-windows-unicode \
 	--$(call ptx/disen, PTXCONF_LIBCURL_C_ARES)-threaded-resolver \
 	--$(call ptx/endis, PTXCONF_LIBCURL_VERBOSE)-verbose \
@@ -81,8 +83,8 @@ LIBCURL_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBCURL_CRYPTO_AUTH)-kerberos-auth \
 	--$(call ptx/endis, PTXCONF_LIBCURL_CRYPTO_AUTH)-negotiate-auth \
 	--$(call ptx/endis, PTXCONF_LIBCURL_CRYPTO_AUTH)-aws \
+	--disable-httpsig \
 	--$(call ptx/endis, PTXCONF_LIBCURL_CRYPTO_AUTH)-ntlm \
-	--enable-tls-srp \
 	--enable-unix-sockets \
 	--$(call ptx/endis, PTXCONF_LIBCURL_COOKIES)-cookies \
 	--enable-socketpair \
