@@ -10,7 +10,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  3 files changed, 10 insertions(+)
 
 diff --git a/cargo_wrapper.py b/cargo_wrapper.py
-index 96142bbaba66..79567f51281a 100755
+index 243a4d9f2298..506852aa2f02 100755
 --- a/cargo_wrapper.py
 +++ b/cargo_wrapper.py
 @@ -34,6 +34,7 @@ PARSER.add_argument('--depfile', type=P)
@@ -32,7 +32,7 @@ index 96142bbaba66..79567f51281a 100755
          cargo_cmd += ['--target', rustc_target]
      if features:
 diff --git a/meson.build b/meson.build
-index 64fa34abc5b9..3d1fb81a668f 100644
+index 8a2be533061b..52e5e22b5f71 100644
 --- a/meson.build
 +++ b/meson.build
 @@ -654,6 +654,10 @@ if get_option('doc').disabled()
