@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GST_PLUGINS_BAD1) += gst-plugins-bad1
 #
 # Paths and names
 #
-GST_PLUGINS_BAD1_VERSION	:= 1.28.2
-GST_PLUGINS_BAD1_SHA256		:= 6467e3964828f4d7d08bfe1fbb4d76287a1c8fa76674e59e101a149c020fefd7
+GST_PLUGINS_BAD1_VERSION	:= 1.28.7
+GST_PLUGINS_BAD1_SHA256		:= dc525383c18b2c265bbe6a43d498656cd918aaa130aa4e3abeabcdaa741c3ffe
 GST_PLUGINS_BAD1		:= gst-plugins-bad-$(GST_PLUGINS_BAD1_VERSION)
 GST_PLUGINS_BAD1_SUFFIX		:= tar.xz
 GST_PLUGINS_BAD1_URL		:= https://gstreamer.freedesktop.org/src/gst-plugins-bad/$(GST_PLUGINS_BAD1).$(GST_PLUGINS_BAD1_SUFFIX)
@@ -313,7 +313,7 @@ endif
 	@$(foreach lib,$(basename $(notdir $(wildcard $(GST_PLUGINS_BAD1_PKGDIR)/usr/lib/*-1.0.so))), \
 		$(call install_lib, gst-plugins-bad1, 0, 0, 0644, $(lib))$(ptx/nl))
 ifdef PTXCONF_GST_PLUGINS_BAD1_HIP
-	@$(call install_lib, gst-plugins-bad1, 0, 0, 0644, libgsthip)
+	@$(call install_lib, gst-plugins-bad1, 0, 0, 0644, libgsthip-1.0)
 endif
 
 #	# install all activated plugins
