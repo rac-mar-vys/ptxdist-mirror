@@ -28,6 +28,7 @@ ZLIB_DIR	:= $(BUILDDIR)/$(ZLIB)
 ZLIB_LICENSE	:= Zlib
 ZLIB_LICENSE_FILES := \
 	file://LICENSE;md5=66e4e749bb11d80fc7ba510a9ce99534
+ZLIB_CVE_PRODUCT := zlib:zlib
 
 # ----------------------------------------------------------------------------
 # Prepare
