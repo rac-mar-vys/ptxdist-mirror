@@ -50,7 +50,7 @@ class SpdxSbomGenerator(SbomGenerator):
 
         spdx_pkg = spdx.SPDXPackage()
         spdx_pkg.name = pkg_name
-        spdx_pkg.SPDXID = "SPDXRef-" + pkg_name
+        spdx_pkg.SPDXID = "SPDXRef-" + pkg_name.replace('_', '-')
         if "version" in pkg:
             spdx_pkg.versionInfo = pkg["version"]
         if "url" in pkg:
