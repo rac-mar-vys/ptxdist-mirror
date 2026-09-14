@@ -29,6 +29,7 @@ OPENSSL_DIR		:= $(BUILDDIR)/$(OPENSSL)
 OPENSSL_LICENSE		:= Apache-2.0
 OPENSSL_LICENSE_FILES	:= \
 	file://LICENSE.txt;md5=c75985e733726beaba57bc5253e96d04
+OPENSSL_CVE_PRODUCT	:= openssl:openssl
 
 # ----------------------------------------------------------------------------
 # Prepare
