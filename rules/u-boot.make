@@ -26,6 +26,7 @@ U_BOOT_DIR		:= $(BUILDDIR)/$(U_BOOT)
 U_BOOT_BUILD_DIR	:= $(U_BOOT_DIR)$(call ptx/ifdef, PTXCONF_U_BOOT_BUILD_OOT,-build)
 U_BOOT_DEVPKG		:= NO
 U_BOOT_BUILD_OOT	:= $(call ptx/ifdef, PTXCONF_U_BOOT_BUILD_OOT,KEEP,NO)
+U_BOOT_CVE_PRODUCT	:= denx:u-boot
 
 ifdef PTXCONF_U_BOOT_CONFIGSYSTEM_KCONFIG
 U_BOOT_CONFIG	:= $(call ptx/in-platformconfigdir, \
