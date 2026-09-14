@@ -25,6 +25,7 @@ LIBMODBUS3_LICENSE		:= LGPL-2.1-or-later
 LIBMODBUS3_LICENSE_FILES	:= \
 	file://COPYING.LESSER;md5=4fbd65380cdd255951079008b364516c \
 	file://src/modbus.c;startline=4;endline=4;md5=09383b02650315a322dba1dcf8aad811
+LIBMODBUS3_CVE_PRODUCT		:= libmodbus:libmodbus
 
 # ----------------------------------------------------------------------------
 # Prepare
