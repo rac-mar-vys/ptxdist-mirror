@@ -23,6 +23,7 @@ COREUTILS_SOURCE	:= $(SRCDIR)/$(COREUTILS).$(COREUTILS_SUFFIX)
 COREUTILS_DIR		:= $(BUILDDIR)/$(COREUTILS)
 COREUTILS_LICENSE	:= GPL-3.0-or-later
 COREUTILS_LICENSE_FILES	:= file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464
+COREUTILS_CVE_PRODUCT	:= gnu:coreutils
 
 # ----------------------------------------------------------------------------
 # Prepare
