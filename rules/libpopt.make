@@ -25,6 +25,7 @@ LIBPOPT_SOURCE	:= $(SRCDIR)/$(LIBPOPT).$(LIBPOPT_SUFFIX)
 LIBPOPT_DIR	:= $(BUILDDIR)/$(LIBPOPT)
 LIBPOPT_LICENSE	:= MIT
 LIBPOPT_LICENSE_FILES := file://COPYING;md5=e0206ac9471d06667e076212db20c5f4
+LIBPOPT_CVE_PRODUCT := popt_project:popt
 
 # ----------------------------------------------------------------------------
 # Prepare
