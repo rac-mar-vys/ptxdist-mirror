@@ -26,6 +26,7 @@ U_BOOT_TOOLS_LICENSE	:= GPL-2.0-or-later AND Zlib
 U_BOOT_TOOLS_LICENSE_FILES := \
 	file://Licenses/gpl-2.0.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 	file://include/u-boot/zlib.h;startline=15;endline=42;md5=0ce30a522a630f7e637ea6d74422b320
+U_BOOT_TOOLS_CVE_PRODUCT = $(U_BOOT_CVE_PRODUCT)
 
 # ----------------------------------------------------------------------------
 # Prepare
