@@ -41,7 +41,7 @@ EXPAT_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-static \
 	--disable-symbol-versioning \
-	--enable-xml-attr-info \
+	--disable-xml-attr-info \
 	--enable-xml-context \
 	--without-xmlwf \
 	--without-examples \
