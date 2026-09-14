@@ -28,6 +28,7 @@ LIBGMP_LICENSE_FILES := \
 	file://COPYING.LESSERv3;md5=6a6a8e020838b23406c81b19c1d46df6 \
 	file://COPYINGv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 	file://COPYINGv3;md5=11cc2d3ee574f9d6b7ee797bdce4d423
+LIBGMP_CVE_PRODUCT := gmplib:gmp
 
 # ----------------------------------------------------------------------------
 # Prepare
