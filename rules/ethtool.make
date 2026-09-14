@@ -25,6 +25,7 @@ ETHTOOL_DIR	:= $(BUILDDIR)/$(ETHTOOL)
 ETHTOOL_LICENSE := GPL-2.0-only
 ETHTOOL_LICENSE_FILES	:= \
 	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
+ETHTOOL_CVE_PRODUCT	:= kernel:ethtool
 
 # ----------------------------------------------------------------------------
 # Prepare
