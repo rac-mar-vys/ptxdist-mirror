@@ -23,6 +23,7 @@ NLOHMANN_JSON_SOURCE	:= $(SRCDIR)/$(NLOHMANN_JSON).$(NLOHMANN_JSON_SUFFIX)
 NLOHMANN_JSON_DIR	:= $(BUILDDIR)/$(NLOHMANN_JSON)
 NLOHMANN_JSON_LICENSE	:= MIT
 NLOHMANN_JSON_LICENSE_FILES := file://LICENSE.MIT;md5=3b489645de9825cca5beeb9a7e18b6eb
+NLOHMANN_JSON_CVE_PRODUCT := nlohmann:json
 
 # ----------------------------------------------------------------------------
 # Prepare
