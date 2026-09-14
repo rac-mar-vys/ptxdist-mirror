@@ -24,6 +24,7 @@ NCURSES_DIR		:= $(BUILDDIR)/$(NCURSES)
 READLINE_BUILD_OOT	:= YES
 NCURSES_LICENSE		:= MIT
 NCURSES_LICENSE_FILES	:= file://COPYING;md5=7743fde124d1ceeaf6eb1100c49fcf6c
+NCURSES_CVE_PRODUCT	:= invisible-island:ncurses
 
 # ----------------------------------------------------------------------------
 # Prepare
