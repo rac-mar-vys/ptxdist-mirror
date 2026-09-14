@@ -26,6 +26,8 @@ SUDO_SOURCE	:= $(SRCDIR)/$(SUDO).$(SUDO_SUFFIX)
 SUDO_DIR	:= $(BUILDDIR)/$(SUDO)
 SUDO_LICENSE	:= ISC AND BSD-3-Clause AND BSD-2-Clause-NetBSD AND Zlib
 SUDO_LICENSE_FILES := file://LICENSE.md;md5=2841c822e587db145364ca95e9be2ffa
+SUDO_CVE_PRODUCT := sudo_project:sudo
+SUDO_CVE_VERSION := $(subst p,:p,$(SUDO_VERSION))
 
 # ----------------------------------------------------------------------------
 # Prepare
