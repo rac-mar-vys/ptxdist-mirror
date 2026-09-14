@@ -145,7 +145,7 @@ class SpdxSbomGenerator(SbomGenerator):
     def build(self, data):
         creationInfo = spdx.SPDXCreationInfo()
         creationInfo.created = (
-            datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+            datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00', 'Z')
         )
         creationInfo.creators = [
             f"Organization: {data['bsp']['vendor']}",
