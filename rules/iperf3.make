@@ -23,6 +23,7 @@ IPERF3_SOURCE	:= $(SRCDIR)/$(IPERF3).$(IPERF3_SUFFIX)
 IPERF3_DIR	:= $(BUILDDIR)/$(IPERF3)
 IPERF3_LICENSE	:= BSD-3-Clause-LBNL AND MIT AND dtoa AND BSD-3-Clause AND NCSA AND public_domain
 IPERF3_LICENSE_FILES := file://LICENSE;md5=b51332d7f45357a9410daa9a14a3655f
+IPERF3_CVE_PRODUCT := es:iperf3
 
 # ----------------------------------------------------------------------------
 # Prepare
