@@ -21,6 +21,7 @@ FCGI_SOURCE		:= $(SRCDIR)/$(FCGI).$(FCGI_SUFFIX)
 FCGI_DIR		:= $(BUILDDIR)/$(FCGI)
 FCGI_LICENSE		:= OML
 FCGI_LICENSE_FILES	:= file://LICENSE;md5=e3aacac3a647af6e7e31f181cda0a06a
+FCGI_CVE_PRODUCT	:= fastcgi:fcgi
 
 # ----------------------------------------------------------------------------
 # Prepare
