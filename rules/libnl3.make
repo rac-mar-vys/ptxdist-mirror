@@ -31,6 +31,8 @@ LIBNL3_LICENSE_FILES := \
 	file://COPYING;md5=4fbd65380cdd255951079008b364516c \
 	file://lib/xfrm/ae.c;startline=3;endline=32;md5=6813917a92b539b07534e1a79f5a6aca
 
+LIBNL3_CVE_PRODUCT := libnl_project:libnl
+
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
