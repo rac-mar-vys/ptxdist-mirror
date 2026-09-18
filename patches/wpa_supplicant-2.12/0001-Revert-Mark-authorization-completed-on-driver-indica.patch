@@ -19,13 +19,13 @@ Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
  1 file changed, 8 insertions(+), 17 deletions(-)
 
 diff --git a/wpa_supplicant/events.c b/wpa_supplicant/events.c
-index 49917f7aaf72..bbb3a3edae7d 100644
+index 4f85da193608..919a0732b813 100644
 --- a/wpa_supplicant/events.c
 +++ b/wpa_supplicant/events.c
-@@ -4327,23 +4327,14 @@ static void wpa_supplicant_event_assoc(struct wpa_supplicant *wpa_s,
- 		eapol_sm_notify_eap_success(wpa_s->eapol, true);
- 	} else if ((wpa_s->drv_flags & WPA_DRIVER_FLAGS_4WAY_HANDSHAKE_PSK) &&
- 		   wpa_key_mgmt_wpa_psk(wpa_s->key_mgmt)) {
+@@ -4925,23 +4925,14 @@ static int wpa_supplicant_event_assoc(struct wpa_supplicant *wpa_s,
+ 		    wpa_key_mgmt_wpa_psk(wpa_s->key_mgmt)) ||
+ 		   ((wpa_s->drv_flags2 & WPA_DRIVER_FLAGS2_OWE_OFFLOAD_STA) &&
+ 		    wpa_s->key_mgmt == WPA_KEY_MGMT_OWE)) {
 -		if (already_authorized) {
 -			/*
 -			 * We are done; the driver will take care of RSN 4-way

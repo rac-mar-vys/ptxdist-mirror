@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_WPA_SUPPLICANT) += wpa_supplicant
 # Paths and names
 #
 WPA_SUPPLICANT_NAME	:= wpa_supplicant
-WPA_SUPPLICANT_VERSION	:= 2.11
-WPA_SUPPLICANT_SHA256	:= 912ea06f74e30a8e36fbb68064d6cdff218d8d591db0fc5d75dee6c81ac7fc0a
+WPA_SUPPLICANT_VERSION	:= 2.12
+WPA_SUPPLICANT_SHA256	:= 08e23937e16d0155e55cab2b51f51fbe10d80a1aa91c4e15442645059b737ef6
 WPA_SUPPLICANT		:= $(WPA_SUPPLICANT_NAME)-$(WPA_SUPPLICANT_VERSION)
 WPA_SUPPLICANT_SUFFIX	:= tar.gz
 WPA_SUPPLICANT_URL	:= https://w1.fi/releases/$(WPA_SUPPLICANT).$(WPA_SUPPLICANT_SUFFIX)
@@ -26,7 +26,10 @@ WPA_SUPPLICANT_SUBDIR	:= $(WPA_SUPPLICANT_NAME)
 # Use '=' to delay $(shell ...) calls until this is needed
 WPA_SUPPLICANT_CONFIG	 = $(call ptx/get-alternative, config/wpasupplicant, defconfig)
 WPA_SUPPLICANT_DOTCONFIG:= $(BUILDDIR)/$(WPA_SUPPLICANT)/$(WPA_SUPPLICANT_SUBDIR)/.config
-WPA_SUPPLICANT_LICENSE	:= GPL-2.0-only
+WPA_SUPPLICANT_LICENSE	:= BSD-3-Clause
+WPA_SUPPLICANT_LICENSE_FILES := \
+	file://COPYING;md5=5ebcb90236d1ad640558c3d3cd3035df \
+	file://README;md5=155e35cb3d6ab0d6a17524f48f4e761c
 
 # ----------------------------------------------------------------------------
 # Prepare
