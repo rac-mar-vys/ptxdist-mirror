@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBPCAP) += libpcap
 #
 # Paths and names
 #
-LIBPCAP_VERSION	:= 1.10.7
-LIBPCAP_SHA256	:= 0b394ac90dbc0a9838ff97468e05c9c9a3e873dec2514cd58db65d859d296e31
+LIBPCAP_VERSION	:= 1.11.0
+LIBPCAP_SHA256	:= 596389bc8560ea027dff9db8aaf6c173d992366d9aef4baf5d7c6d180b4d49ad
 LIBPCAP		:= libpcap-$(LIBPCAP_VERSION)
 LIBPCAP_SUFFIX	:= tar.gz
 LIBPCAP_URL	:= https://www.tcpdump.org/release/$(LIBPCAP).$(LIBPCAP_SUFFIX)
@@ -46,7 +46,7 @@ LIBPCAP_CONF_OPT	:= \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-instrument-functions \
 	--enable-protochain \
-	$(GLOBAL_IPV6_OPTION) \
+	--disable-dag-tx \
 	--disable-remote \
 	--disable-optimizer-dbg \
 	--disable-yydebug \
@@ -61,9 +61,7 @@ LIBPCAP_CONF_OPT	:= \
 	--with-pcap=linux \
 	--with-libnl \
 	--without-dag \
-	--without-septel \
-	--without-snf \
-	--without-turbocap
+	--without-snf
 
 # ----------------------------------------------------------------------------
 # Target-Install
