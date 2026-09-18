@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBINPUT) += libinput
 #
 # Paths and names
 #
-LIBINPUT_VERSION	:= 1.31.3
-LIBINPUT_SHA256		:= b6749bf6f1890f6631c0a70a027c35fec9d2e096a39f720548896e41474a9854
+LIBINPUT_VERSION	:= 1.32.0
+LIBINPUT_SHA256		:= 7dd6c1ca964c86eb6810ccd6639cda634e68bdca43bf3afec39e94e942fac8d4
 LIBINPUT		:= libinput-$(LIBINPUT_VERSION)
 LIBINPUT_SUFFIX		:= tar.gz
 LIBINPUT_URL		:= https://gitlab.freedesktop.org/libinput/libinput/-/archive/$(LIBINPUT_VERSION)/$(LIBINPUT).$(LIBINPUT_SUFFIX)
@@ -32,19 +32,19 @@ LIBINPUT_LICENSE_FILES	:= \
 LIBINPUT_CONF_TOOL	:= meson
 LIBINPUT_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dudev-dir=/usr/lib/udev \
-	-Depoll-dir= \
-	-Dlibwacom=$(call ptx/truefalse, PTXCONF_LIBINPUT_WACOM) \
-	-Dmtdev=true \
-	-Ddebug-gui=false \
-	-Dtests=false \
-	-Dinstall-tests=false \
-	-Ddocumentation=false \
-	-Dcoverity=false \
-	-Dzshcompletiondir=no \
-	-Dinternal-event-debugging=false \
 	-Dautoload-plugins=false \
-	-Dlua-plugins=$(call ptx/endis, PTXCONF_LIBINPUT_LUA)d
+	-Dcoverity=false \
+	-Ddebug-gui=false \
+	-Ddocumentation=false \
+	-Depoll-dir= \
+	-Dinstall-tests=false \
+	-Dinternal-event-debugging=false \
+	-Dlibwacom=$(call ptx/truefalse, PTXCONF_LIBINPUT_WACOM) \
+	-Dlua-plugins=$(call ptx/endis, PTXCONF_LIBINPUT_LUA)d \
+	-Dmtdev=true \
+	-Dtests=false \
+	-Dudev-dir=/usr/lib/udev \
+	-Dzshcompletiondir=no
 
 # ----------------------------------------------------------------------------
 # Target-Install
