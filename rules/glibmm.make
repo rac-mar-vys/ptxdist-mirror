@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GLIBMM) += glibmm
 #
 # Paths and names
 #
-GLIBMM_VERSION	:= 2.78.1
-GLIBMM_SHA256	:= f473f2975d26c3409e112ed11ed36406fb3843fa975df575c22d4cb843085f61
+GLIBMM_VERSION	:= 2.90.0
+GLIBMM_SHA256	:= e2efa45643f16b9fea2d6299f2f403d672eaeacddf0ff7f8094e1af9b0f5980b
 GLIBMM		:= glibmm-$(GLIBMM_VERSION)
 GLIBMM_SUFFIX	:= tar.xz
 GLIBMM_URL	:= $(call ptx/mirror, GNOME, glibmm/$(basename $(GLIBMM_VERSION))/$(GLIBMM).$(GLIBMM_SUFFIX))
@@ -23,8 +23,8 @@ GLIBMM_SOURCE	:= $(SRCDIR)/$(GLIBMM).$(GLIBMM_SUFFIX)
 GLIBMM_DIR	:= $(BUILDDIR)/$(GLIBMM)
 GLIBMM_LICENSE	:= LGPL-2.1-only AND GPL-2.0-only
 GLIBMM_LICENSE_FILES	:= \
-	file://COPYING;md5=42dfffebc56fec7527aac53b7a89d1d8 \
-	file://COPYING.tools;md5=751419260aa954499f7abaabaa882bbe
+	file://COPYING;md5=4bf661c1e3793e55c8d1051bc5e0ae21 \
+	file://COPYING.tools;md5=570a9b3749dd0463a1778803b12a6dce
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -39,6 +39,7 @@ GLIBMM_CONF_OPT   := \
 	-Dbuild-deprecated-api=false \
 	-Dbuild-documentation=false \
 	-Dbuild-examples=false \
+	-Dbuild-mmgir=false \
 	-Ddebug-refcounting=false \
 	-Ddist-warnings=fatal \
 	-Dmaintainer-mode=false \
