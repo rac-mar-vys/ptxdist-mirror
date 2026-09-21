@@ -15,15 +15,16 @@ PACKAGES-$(PTXCONF_BOOST) += boost
 #
 # Paths and names
 #
-BOOST_VERSION	:= 1_89_0
+BOOST_VERSION	:= 1.89.0
 BOOST_SHA256	:= 85a33fa22621b4f314f8e85e1a5e2a9363d22e4f4992925d4bb3bc631b5a0c7a
-BOOST		:= boost_$(BOOST_VERSION)
+BOOST		:= boost_$(subst .,_,$(BOOST_VERSION))
 BOOST_SUFFIX	:= tar.bz2
-BOOST_URL	:= $(call ptx/mirror, SF, boost/$(BOOST).$(BOOST_SUFFIX))
+BOOST_URL	:= $(call ptx/mirror, SF, boost/$(BOOST_VERSION)/$(BOOST).$(BOOST_SUFFIX))
 BOOST_SOURCE	:= $(SRCDIR)/$(BOOST).$(BOOST_SUFFIX)
 BOOST_DIR	:= $(BUILDDIR)/$(BOOST)
 BOOST_LICENSE	:= BSL-1.0
 BOOST_LICENSE_FILES := file://LICENSE_1_0.txt;md5=e4224ccaecb14d942c71d31bef20d78c
+BOOST_CVE_PRODUCT := boost:boost
 
 # ----------------------------------------------------------------------------
 # Prepare
