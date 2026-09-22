@@ -14,14 +14,19 @@ PACKAGES-$(PTXCONF_LIBTRACEEVENT) += libtraceevent
 #
 # Paths and names
 #
-LIBTRACEEVENT_VERSION	:= 1.8.4
-LIBTRACEEVENT_SHA256	:= d4d206a9bf53f613f7e2e6bc10c8909c895456f2ea37e03f6741de77c9c9532f
+LIBTRACEEVENT_VERSION	:= 1.9.0
+LIBTRACEEVENT_SHA256	:= 1ed2e47cfd44080fda9c9e33be4b128680958001ced286fe719abc85136b259d
 LIBTRACEEVENT		:= libtraceevent-$(LIBTRACEEVENT_VERSION)
 LIBTRACEEVENT_SUFFIX	:= tar.xz
 LIBTRACEEVENT_URL	:= https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git;tag=libtraceevent-$(LIBTRACEEVENT_VERSION)
 LIBTRACEEVENT_SOURCE	:= $(SRCDIR)/$(LIBTRACEEVENT).$(LIBTRACEEVENT_SUFFIX)
 LIBTRACEEVENT_DIR	:= $(BUILDDIR)/$(LIBTRACEEVENT)
-LIBTRACEEVENT_LICENSE	:= LGPL-2.1 AND GPL-2.0
+LIBTRACEEVENT_LICENSE	:= LGPL-2.1-only AND GPL-2.0-only
+LIBTRACEEVENT_LICENSE_FILES := \
+	file://LICENSES/GPL-2.0;md5=e6a75371ba4d16749254a51215d13f97 \
+	file://LICENSES/LGPL-2.1;md5=b370887980db5dd40659b50909238dbd \
+	file://plugins/plugin_scsi.c;startline=1;endline=1;md5=50d2ba0afecd20f74c12a4bdbcfcfe61 \
+	file://src/event-parse.c;startline=1;endline=11;md5=3373f94e7cee2c35310a0e3bf7ebf6dc
 
 # ----------------------------------------------------------------------------
 # Prepare
