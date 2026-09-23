@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NBD) += nbd
 #
 # Paths and names
 #
-NBD_VERSION	:= 3.26.1
-NBD_SHA256	:= f0cf509fa5b20b1a07f7904eb637e9b47d3e30b6ed6f00075af5d8b701c78fef
+NBD_VERSION	:= 3.27.1
+NBD_SHA256	:= ef1fe160ac3ff602ae4029d413b0d530036e352a1e6a427402776c1a7aaf3716
 NBD		:= nbd-$(NBD_VERSION)
 NBD_SUFFIX	:= tar.xz
 NBD_URL		:= https://github.com/NetworkBlockDevice/nbd/releases/download/$(NBD)/$(NBD).$(NBD_SUFFIX)
@@ -34,7 +34,6 @@ NBD_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_GLOBAL_LARGE_FILE)-lfs \
 	--disable-syslog \
 	--disable-debug \
-	--disable-gznbd \
 	--disable-manpages \
 	--without-gnutls \
 	--with-libnl
