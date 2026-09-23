@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_NGINX) += nginx
 #
 # Paths and names
 #
-NGINX_VERSION	:= 1.29.1
-NGINX_SHA256	:= c589f7e7ed801ddbd904afbf3de26ae24eb0cce27c7717a2e94df7fb12d6ad27
+NGINX_VERSION	:= 1.31.6
+NGINX_SHA256	:= 974ed5298a5e398e008704ed5db284e655fc270c596493dbccada452448fc9f1
 NGINX		:= nginx-$(NGINX_VERSION)
 NGINX_SUFFIX	:= tar.gz
 NGINX_URL	:= https://nginx.org/download/$(NGINX).$(NGINX_SUFFIX)
@@ -24,7 +24,8 @@ NGINX_SOURCE	:= $(SRCDIR)/$(NGINX).$(NGINX_SUFFIX)
 NGINX_DIR	:= $(BUILDDIR)/$(NGINX)
 NGINX_LICENSE	:= BSD-2-Clause
 NGINX_LICENSE_FILES	:= \
-	file://LICENSE;md5=3dc49537b08b14c8b66ad247bb4c4593
+	file://LICENSE;md5=79da1c70d587d3a199af9255ad393f99
+NGINX_CVE_PRODUCT := f5:nginx_open_source
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -86,6 +87,7 @@ NGINX_CONF_OPT := \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_UWSGI_MODULE,,--without-http_uwsgi_module) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_SCGI_MODULE,,--without-http_scgi_module) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_GRPC_MODULE,,--without-http_grpc_module) \
+	--without-http_tunnel_module \
 	--without-http_memcached_module \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_LIMIT_CON_MODULE,,--without-http_limit_conn_module) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_LIMIT_REQ_MODULE,,--without-http_limit_req_module) \
@@ -94,9 +96,11 @@ NGINX_CONF_OPT := \
 	--without-http_upstream_hash_module \
 	--without-http_upstream_ip_hash_module \
 	--without-http_upstream_least_conn_module \
+	--without-http_upstream_least_time_module \
 	--without-http_upstream_random_module \
 	--without-http_upstream_keepalive_module \
 	--without-http_upstream_zone_module \
+	--without-http_upstream_sticky_module \
 	--http-log-path=/var/log/nginx \
 	--http-client-body-temp-path=/var/tmp/nginx/client-body \
 	--http-proxy-temp-path=/var/tmp/nginx/proxy \
@@ -116,6 +120,7 @@ NGINX_CONF_OPT := \
 	--without-stream_set_module \
 	--without-stream_upstream_hash_module \
 	--without-stream_upstream_least_conn_module \
+	--without-stream_upstream_least_time_module \
 	--without-stream_upstream_random_module \
 	--without-stream_upstream_zone_module \
 	--with-cc=$(CROSS_CC) \
