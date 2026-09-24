@@ -18,10 +18,10 @@ Signed-off-by: Christian Melki <christian.melki@t2data.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/cairo-ft-font.c b/src/cairo-ft-font.c
-index b5d08ee1b393..5e20ae164ff8 100644
+index b9bdf81cfcc6..fa9c05d32073 100644
 --- a/src/cairo-ft-font.c
 +++ b/src/cairo-ft-font.c
-@@ -1220,7 +1220,7 @@ _get_bitmap_surface (FT_Bitmap		     *bitmap,
+@@ -1231,7 +1231,7 @@ _get_bitmap_surface (FT_Bitmap		     *bitmap,
      width = bitmap->width;
      height = bitmap->rows;
  

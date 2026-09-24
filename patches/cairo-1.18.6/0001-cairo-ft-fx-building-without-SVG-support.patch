@@ -17,10 +17,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/src/cairo-ft-private.h b/src/cairo-ft-private.h
-index 836f7e523e59..399d0d046094 100644
+index 6b0e302233b2..415416f243b6 100644
 --- a/src/cairo-ft-private.h
 +++ b/src/cairo-ft-private.h
-@@ -63,10 +63,10 @@ cairo_private cairo_status_t
+@@ -65,10 +65,10 @@ cairo_private cairo_status_t
  _cairo_ft_face_decompose_glyph_outline (FT_Face		     face,
  					cairo_path_fixed_t **pathp);
  
