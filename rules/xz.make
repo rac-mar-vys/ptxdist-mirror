@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_XZ) += xz
 #
 # Paths and names
 #
-XZ_VERSION	:= 5.8.1
-XZ_SHA256	:= bdbc23fbf9098843357e71e49685724fda2c320c29cb1b25fd90505f14bb0b3d
+XZ_VERSION	:= 5.8.4
+XZ_SHA256	:= b6b34c52e672e810d339db14e0c10b5b6f5f67a30d8d05cdac5d8cb4d82f78d5
 XZ		:= xz-$(XZ_VERSION)
 XZ_SUFFIX	:= tar.gz
 XZ_URL		:= https://github.com/tukaani-project/xz/archive/refs/tags/v$(XZ_VERSION).$(XZ_SUFFIX)
@@ -24,9 +24,9 @@ XZ_DIR		:= $(BUILDDIR)/$(XZ)
 XZ_LICENSE	:= 0BSD AND public_domain AND LGPL-2.1-or-later AND GPL-2.0-or-later AND GPL-3.0-or-later
 XZ_LICENSE_FILES := \
 	file://COPYING;md5=d38d562f6112174de93a9677682231b2 \
-	file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://COPYING.GPLv2;md5=570a9b3749dd0463a1778803b12a6dce \
 	file://COPYING.GPLv3;md5=1ebbd3e34237af26da5dc08a4e440464 \
-	file://COPYING.LGPLv2.1;md5=4fbd65380cdd255951079008b364516c
+	file://COPYING.LGPLv2.1;md5=4bf661c1e3793e55c8d1051bc5e0ae21
 
 # ----------------------------------------------------------------------------
 # Prepare
