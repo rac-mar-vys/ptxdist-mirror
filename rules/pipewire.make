@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 1.6.4
-PIPEWIRE_SHA256		:= 2fce3abd2c8bc89bffc9435fb9e4e286a509abcf4479eafc45d2d81275baaa61
+PIPEWIRE_VERSION	:= 1.6.9
+PIPEWIRE_SHA256		:= 0cde58c124825bad462b32ab79f9aa286ee7b113cc73a5cda923a4365e752657
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -53,8 +53,8 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dbluez5-codec-g722=disabled \
 	-Dbluez5-codec-lc3=disabled \
 	-Dbluez5-codec-lc3plus=disabled \
-	-Dbluez5-codec-ldac-dec=disabled \
 	-Dbluez5-codec-ldac=disabled \
+	-Dbluez5-codec-ldac-dec=disabled \
 	-Dbluez5-codec-opus=disabled \
 	-Dbluez5-plc-spandsp=disabled \
 	-Dcompress-offload=disabled \
