@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NTFS_3G) += ntfs-3g
 #
 # Paths and names
 #
-NTFS_3G_VERSION	:= 2022.10.3
-NTFS_3G_SHA256	:= f20e36ee68074b845e3629e6bced4706ad053804cbaf062fbae60738f854170c
+NTFS_3G_VERSION	:= 2026.9.18
+NTFS_3G_SHA256	:= bcf3cf301a79e42d330128ffb52d4cf615bd1d30c10a92d9d8d14f2bb4fcd9bf
 NTFS_3G		:= ntfs-3g_ntfsprogs-$(NTFS_3G_VERSION)
 NTFS_3G_SUFFIX	:= tgz
 NTFS_3G_URL	:= https://download.tuxera.com/opensource/$(NTFS_3G).$(NTFS_3G_SUFFIX)
@@ -23,7 +23,7 @@ NTFS_3G_SOURCE	:= $(SRCDIR)/$(NTFS_3G).$(NTFS_3G_SUFFIX)
 NTFS_3G_DIR	:= $(BUILDDIR)/$(NTFS_3G)
 NTFS_3G_LICENSE	:= GPL-2.0-or-later AND LGPL-2.0-only
 NTFS_3G_LICENSE_FILES	:= \
-	file://README;startline=37;endline=44;md5=692018652fb43fb27bfde6a919c68388 \
+	file://README;startline=37;endline=44;md5=1b0233b9858fc6047c15fdeb8b88beb7 \
 	file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552 \
 	file://COPYING.LIB;md5=f30a9716ef3762e3467a2f62bf790f0a
 
