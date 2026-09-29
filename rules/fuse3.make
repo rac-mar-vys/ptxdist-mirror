@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FUSE3) += fuse3
 #
 # Paths and names
 #
-FUSE3_VERSION	:= 3.17.4
-FUSE3_SHA256	:= df9e40ae927b73dc702d0bce7925c0c618af47ad0b13204fbf2be66e54d8528b
+FUSE3_VERSION	:= 3.18.3
+FUSE3_SHA256	:= bcd19582c5e30f7fe45dd86a5540e998590aa01903afc7ebcbeea6c8ac5421ee
 FUSE3		:= fuse-$(FUSE3_VERSION)
 FUSE3_SUFFIX	:= tar.gz
 FUSE3_URL	:= https://github.com/libfuse/libfuse/releases/download/$(FUSE3)/$(FUSE3).$(FUSE3_SUFFIX)
@@ -39,6 +39,9 @@ FUSE3_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-Ddisable-libc-symbol-version=true \
 	-Ddisable-mtab=true \
+	-Denable-custom-io=false \
+	-Denable-io-uring=false \
+	-Denable-usdt=false \
 	-Dexamples=false \
 	-Dtests=false \
 	-Dudevrulesdir=/usr/lib/udev/rules.d \
