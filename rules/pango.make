@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_PANGO) += pango
 #
 # Paths and names
 #
-PANGO_VERSION	:= 1.57.0
-PANGO_SHA256	:= 890640c841dae77d3ae3d8fe8953784b930fa241b17423e6120c7bfdf8b891e7
+PANGO_VERSION	:= 1.58.2
+PANGO_SHA256	:= 342385b6ca3b7c73455d7c80a13b7dbe4489e00bc3bd4c5bd6ed4dce421e374a
 PANGO		:= pango-$(PANGO_VERSION)
 PANGO_SUFFIX	:= tar.xz
 PANGO_URL	:= $(call ptx/mirror, GNOME, pango/$(basename $(PANGO_VERSION))/$(PANGO).$(PANGO_SUFFIX))
@@ -35,16 +35,16 @@ PANGO_LICENSE_FILES := \
 PANGO_CONF_TOOL	:= meson
 PANGO_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dbuild-testsuite=false \
 	-Dbuild-examples=false \
+	-Dbuild-testsuite=false \
 	-Dcairo=enabled \
 	-Ddocumentation=false \
 	-Dfontconfig=enabled \
 	-Dfreetype=enabled \
 	-Dgtk_doc=false \
-	-Dman-pages=false \
 	-Dintrospection=$(call ptx/endis,PTXCONF_PANGO_INTROSPECTION)d \
 	-Dlibthai=disabled \
+	-Dman-pages=false \
 	-Dsysprof=disabled \
 	-Dxft=disabled
 
