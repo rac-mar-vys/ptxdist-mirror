@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_BATCTL) += batctl
 #
 # Paths and names
 #
-BATCTL_VERSION		:= 2026.0
-BATCTL_SHA256		:= b4b70dae620106e45ee3ddb1f512f69075692b12343d0521267403cb212a4a26
+BATCTL_VERSION		:= 2026.3
+BATCTL_SHA256		:= 2c8443fae7b3471a500837f8cfbbc2b7bbab602e43ce8c61b100560dec1d9ee0
 BATCTL			:= batctl-$(BATCTL_VERSION)
 BATCTL_SUFFIX		:= tar.gz
 BATCTL_URL		:= https://downloads.open-mesh.org/batman/stable/sources/batctl/$(BATCTL).$(BATCTL_SUFFIX)
